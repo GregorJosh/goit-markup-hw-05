@@ -1,22 +1,24 @@
 :root {
-  --color1: rgb(33, 150, 243);
-  --color2: rgb(0, 0, 0);
-  --color3: rgb(33, 33, 33);
-  --color4: rgb(117, 117, 117);
-  --color5: rgb(255, 255, 255);
-  --bg-color1: rgb(47, 48, 58);
-  --bg-color2: rgb(245, 244, 250);
-  --bg-color3: rgb(175, 177, 184);
-  --bg-color4: var(--color5);
+  --color-blue: rgb(33, 150, 243);
+  --color-black: rgb(0, 0, 0);
+  --color-dark-gray1: rgb(33, 33, 33);
+  --color-gray1: rgb(117, 117, 117);
+  --color-white1: rgb(255, 255, 255);
+  --color-dark-blue: rgb(47, 48, 58);
+  --color-white2: rgb(245, 244, 250);
+  --color-gray2: rgb(175, 177, 184);
   --bg-overlay: rgba(47, 48, 58, 0.4);
   --bg-overlay2: rgba(255, 255, 255, 0.1);
   --border-color1: rgb(236, 236, 236);
   --border-color2: rgb(238, 238, 238);
   --shadow-color1: rgba(0, 0, 0, 0.15);
+
+  --animation-time: 250ms;
+  --animation-timing: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
-  color: var(--color3);
+  color: var(--color-dark-gray1);
   font-size: 14px;
   font-family: Roboto, sans-serif;
   letter-spacing: 0.03em;
@@ -45,21 +47,28 @@ img {
 
 .link {
   text-decoration: none;
-  color: var(--color4);
+  color: var(--color-gray1);
   font-weight: 500;
+
+  transition: color var(--animation-time) var(--animation-timing);
 }
 
 .button {
-  background-color: var(--bg-color2);
-  color: var(--color3);
+  color: var(--color-dark-gray1);
+  background-color: var(--color-white2);
+
   border: none;
   border-radius: 4px;
+
+  transition-property: background-color, color, box-shadow;
+  transition-duration: var(--animation-time);
+  transition-timing-function: var(--animation-timing);
 }
 
 .button:hover,
 .button:focus {
-  background-color: var(--color1);
-  color: var(--color5);
+  background-color: var(--color-blue);
+  color: var(--color-white1);
   cursor: pointer;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
@@ -103,28 +112,28 @@ img {
 }
 
 .menu .link {
-  color: var(--color3);
+  color: var(--color-dark-gray1);
 }
 
 .link:hover,
 .link:focus,
 .link.active {
-  color: var(--color1);
+  color: var(--color-blue);
 }
 
 .logo {
   font-family: Raleway, sans-serif;
   font-size: 26px;
   font-weight: bold;
-  color: var(--color2);
+  color: var(--color-black);
 }
 
 .header .logo {
-  color: var(--color2);
+  color: var(--color-black);
 }
 
 .header-link-icon {
-  --color5: currentColor;
+  --path1-color: currentColor;
 
   margin: 0 8px 3px 0;
   vertical-align: middle;
@@ -166,8 +175,8 @@ img {
 
 .hero-section,
 .footer {
-  background-color: var(--bg-color1);
-  color: var(--color5);
+  background-color: var(--color-dark-blue);
+  color: var(--color-white1);
 }
 
 .hero-section {
@@ -192,7 +201,7 @@ img {
 }
 
 .advantage-card {
-  background-color: var(--bg-color2);
+  background-color: var(--color-white2);
 }
 
 .advantage-picture {
@@ -200,7 +209,7 @@ img {
 }
 
 .advantage-description {
-  background-color: var(--color5);
+  background-color: var(--color-white1);
   padding-top: 30px;
 }
 
@@ -209,13 +218,13 @@ img {
 }
 
 .advantage-content {
-  color: var(--color4);
+  color: var(--color-gray1);
   line-height: 1.71;
   margin-top: 10px;
 }
 
 .section-header {
-  color: var(--color3);
+  color: var(--color-dark-gray1);
   font-size: 36px;
   margin-bottom: 50px;
 }
@@ -225,11 +234,11 @@ img {
 }
 
 .our-team-section {
-  background-color: var(--bg-color2);
+  background-color: var(--color-white2);
 }
 
 .section .card {
-  background-color: var(--color5);
+  background-color: var(--color-white1);
   justify-content: space-between;
 }
 
@@ -246,12 +255,12 @@ img {
 }
 
 .card-title {
-  color: var(--color3);
+  color: var(--color-dark-gray1);
   font-weight: 500;
 }
 
 .card-description {
-  color: var(--color4);
+  color: var(--color-gray1);
   margin-top: 10px;
 }
 
@@ -265,21 +274,48 @@ img {
   margin: 0;
 }
 
+.social-media-icons .link {
+  color: var(--color-white1);
+}
+
+.social-media-icons .link:hover,
+.social-media-icons .link:focus {
+  color: var(--color-blue);
+}
+
 .link:focus .social-media-icon,
 .link:hover .social-media-icon {
-  --bg-color3: var(--bg-color4);
-  --color5: var(--color1);
+  --path4-color: var(--color-white1);
+  --path5-color: currentColor;
+}
+
+.client-logos .link {
+  color: var(--color-gray2);
+}
+
+.client-logos .link:hover,
+.client-logos .link:focus {
+  color: var(--color-blue);
 }
 
 .client-logo {
-  border: 1px solid var(--bg-color3);
+  --path4-color: var(--color-gray2);
+
+  border: 1px solid var(--color-gray2);
   border-radius: 4px;
   padding: 14px 32px;
+
+  transition: border var(--animation-time) var(--animation-timing);
+}
+
+.client-logo:hover,
+.client-logo:focus {
+  border: 1px solid var(--color-blue);
 }
 
 .link:hover .client-logo,
 .link:focus .client-logo {
-  --bg-color3: var(--color1);
+  --path4-color: currentColor;
 }
 
 .filters {
@@ -313,6 +349,8 @@ img {
 
 .projects .card {
   box-shadow: none;
+
+  transition: box-shadow var(--animation-time) var(--animation-timing);
 }
 
 .projects .list-item:nth-child(3n) {
@@ -326,7 +364,7 @@ img {
 .projects .card-title {
   font-weight: 700;
   font-size: 18px;
-  line-height: 1.71;
+  line-height: 2;
 }
 
 .projects .list-item:nth-last-child(-n + 3) {
@@ -334,8 +372,9 @@ img {
 }
 
 .projects .card-description {
-  line-height: 1.6;
+  line-height: 1.8;
   margin-top: 4px;
+  font-weight: 400;
 }
 
 .projects .card:hover,
@@ -356,7 +395,7 @@ img {
 }
 
 .footer .logo {
-  color: var(--color5);
+  color: var(--color-white1);
 }
 
 .address {
@@ -378,11 +417,20 @@ img {
   margin-top: 20px;
 }
 
+.footer .social-media-icons .link {
+  color: var(--bg-overlay2);
+}
+
+.footer .social-media-icons .link:hover,
+.footer .social-media-icons .link:focus {
+  color: var(--color-blue);
+}
+
 .footer .social-media-icon {
   --bg-color3: var(--bg-color4);
-  --color5: var(--bg-overlay2);
+  --path5-color: var(--bg-overlay2);
 }
 
 .logo > .logo-blue {
-  color: var(--color1);
+  color: var(--color-blue);
 }
