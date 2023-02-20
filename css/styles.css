@@ -9,6 +9,7 @@
   --color-gray2: rgb(175, 177, 184);
   --bg-overlay: rgba(47, 48, 58, 0.4);
   --bg-overlay2: rgba(255, 255, 255, 0.1);
+  --bg-overlay3: rgba(47, 48, 58, 0.8);
   --border-color1: rgb(236, 236, 236);
   --border-color2: rgb(238, 238, 238);
   --shadow-color1: rgba(0, 0, 0, 0.15);
@@ -99,20 +100,50 @@ img {
 }
 
 .header .container {
-  padding-top: 25px;
-  padding-bottom: 25px;
+  height: 80px;
+}
+
+.header .menu,
+.header nav,
+.header .menu-item {
+  height: 100%;
 }
 
 .header .menu {
   margin-left: 93px;
 }
 
-.menu .menu-item:not(:first-child) {
+.header .menu-item:not(:first-child) {
   margin-left: 46px;
 }
 
-.menu .link {
+.header .menu-item {
+  position: relative;
+}
+
+.header .menu-item .link {
   color: var(--color-dark-gray1);
+  display: block;
+  padding: 32px 0;
+}
+
+.header .menu-item .link:hover,
+.header .menu-item .link:focus {
+  color: var(--color-blue);
+}
+
+.header .menu-item.active .link {
+  color: var(--color-blue);
+}
+
+.menu-item.active .link::after  {
+  display: block;
+  position: absolute;
+  bottom: -1px;
+  content: "";
+  height: 5px;
+  width: 100%;
+  background-color: var(--color-blue);
 }
 
 .link:hover,
@@ -231,6 +262,19 @@ img {
 
 .about-section {
   padding-top: 0;
+}
+
+.about-section .gallery-image {
+  position: relative;
+}
+
+.about-section .gallery-image-title {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 27px 0;
+  background-color: var(--bg-overlay3);
+  color: var(--color-white1);
 }
 
 .our-team-section {
