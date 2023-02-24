@@ -68,8 +68,10 @@
         </div>
       </section>
 
-      <div class="backdrop">
-        <div class="modal"></div>
+      <div class="backdrop is-hidden" data-modal>
+        <form class="modal">
+          <button type="button" data-modal-close>&#10006;</button>
+        </form>
       </div>
 
       <!-- Our Advantages section -->
@@ -458,5 +460,7 @@
         </ul>
       </div>
     </footer>
+
+    <script src="js/modal.js"></script>
   </body>
 </html>
