@@ -476,9 +476,9 @@ button:hover {
 
 .projects .card .card-image .overlay-description {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  transform: translateY(101%);
+  top: 101%;
+  left: 0;
+  height: 100%;
   padding: 49px 45px 0 24px;
   background-color: var(--bg-overlay4);
   color: var(--color-white1);
@@ -514,7 +514,7 @@ button:hover {
 
 .projects .card:hover .overlay-description,
 .projects .link:focus .overlay-description {
-  transform: translateY(0%);
+  transform: translateY(-101%);
 }
 
 .footer .container {
